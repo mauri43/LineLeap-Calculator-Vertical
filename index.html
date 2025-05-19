@@ -26,19 +26,43 @@
       max-width: 700px;
       width: 100%;
     }
-    input[type=number], input[type=range] {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      background: #2e2e2e;
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-    }
     label {
       margin-top: 1rem;
       display: block;
       color: #ccc;
+      width: 100%;
+    }
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .input-wrapper span {
+      font-size: 1rem;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      width: 16px;
+      display: inline-block;
+      /* To ensure space even if span is empty */
+    }
+    .input-wrapper input {
+      font-size: 1rem;
+      width: 100%;
+      padding-left: 28px;
+      padding-right: 0.5rem;
+      background: #2e2e2e;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+      box-sizing: border-box;
+    }
+    input[type=range] {
+      width: 100%;
+      margin-top: 0.5rem;
+      background: #2e2e2e;
     }
     h1 {
       color: #0682fe;
@@ -47,8 +71,8 @@
       color: white;
       font-size: 2rem;
       margin-top: 0.5rem;
+      padding-right: 0.5rem;
     }
-
     .highlight-label {
       margin-top: 2rem;
       font-size: 1.2rem;
@@ -58,33 +82,19 @@
       width: 200px;
       margin-bottom: 1rem;
     }
-    .input-wrapper {
-      position: relative;
-    }
-    .input-wrapper span {
-      font-size: 1rem;
-
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #999;
-    }
-    .input-wrapper input {
-      font-size: 1rem;
-
-      padding-left: 24px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="lineleap-logo.png" alt="LineLeap Logo" class="logo"/>
+    <img src="https://via.placeholder.com/200x50?text=LineLeap+Logo" alt="LineLeap Logo" class="logo"/>
     <h1>LineSkip Revenue Calculator</h1>
     <p>This calculator helps you estimate how much money you could generate in a single night with LineLeap.</p>
     <div class="card">
       <label>Number of Nightly Customers
-        <input type="number" id="people" placeholder="Enter number"/>
+        <div class="input-wrapper">
+          <span style="visibility:hidden;">$</span>
+          <input type="number" id="people" placeholder="Enter number"/>
+        </div>
       </label>
       <label>Percentage of Customers who would purchase LineSkips
         <input type="range" id="percentage" min="0" max="100" value="15"/>
